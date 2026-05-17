@@ -1,0 +1,151 @@
+/* Hizmet Alanlarımız — premium kurumsal kartlar */
+
+.services-section {
+  padding: clamp(4rem, 8vw, 5.5rem) 1.5rem;
+  background: var(--gray-50, #f8fafc);
+}
+
+.services-section-header {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.services-section-header h2 {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.65rem, 3.2vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--navy, #0a1628);
+  line-height: 1.2;
+}
+
+.services-section-header p {
+  margin: 0;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--gray-600, #64748b);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.service-card-premium {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.75rem 1.65rem;
+  background: var(--white, #fff);
+  border: 1px solid var(--gray-200, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 2px 12px rgba(10, 22, 40, 0.04);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.service-card-premium:hover {
+  transform: translateY(-4px);
+  border-color: rgba(30, 111, 217, 0.22);
+  box-shadow:
+    0 12px 32px rgba(10, 22, 40, 0.08),
+    0 0 0 1px rgba(30, 111, 217, 0.06);
+}
+
+.service-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.25rem;
+  border-radius: 12px;
+  color: var(--blue, #1e6fd9);
+  background: linear-gradient(
+    145deg,
+    rgba(30, 111, 217, 0.12) 0%,
+    rgba(30, 111, 217, 0.05) 100%
+  );
+  border: 1px solid rgba(30, 111, 217, 0.12);
+}
+
+.service-card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.service-card-premium h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy, #0a1628);
+  line-height: 1.3;
+}
+
+.service-card-premium p {
+  margin: 0;
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--gray-600, #64748b);
+}
+
+.services-section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--blue, #1e6fd9);
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.services-section-link:hover {
+  gap: 0.65rem;
+  color: var(--blue-light, #3b8ef0);
+}
+
+.services-section .gallery-slider {
+  margin-top: 0;
+}
+
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-section-header {
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .service-card-premium {
+    padding: 1.5rem 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card-premium {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .service-card-premium:hover {
+    transform: none;
+  }
+}
