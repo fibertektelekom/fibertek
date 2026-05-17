@@ -1,5 +1,6 @@
 export const SITE = {
   name: "Fibertek Telekom",
+  nameBrand: "FİBERTEK TELEKOM",
   tagline: "Fiber Altyapı & Saha Operasyonları",
   description:
     "İstanbul merkezli fiber optik altyapı, saha operasyonları ve kurumsal telekom çözümleri.",

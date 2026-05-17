@@ -25,8 +25,8 @@ export function SiteHeader() {
             priority
             unoptimized
           />
-          <div className="logo-text">
-            <span className="logo-main">{SITE.name}</span>
+          <div className="logo-text logo-text--fiber">
+            <span className="logo-main">{SITE.nameBrand}</span>
             <span className="logo-sub">{SITE.tagline}</span>
           </div>
         </Link>

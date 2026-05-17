@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="footer-inner">
         <div className="footer-grid">
           <div className="footer-brand">
-            <span className="logo-main">{SITE.name}</span>
+            <span className="logo-main logo-main--brand">{SITE.nameBrand}</span>
             <p>
               {SITE.addressShort} merkezli fiber optik altyapı ve saha
               operasyonları firması. Kurumsal telekom projelerinde güvenilir
@@ -35,7 +35,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-bottom">
           <p>
-            &copy; {year} {SITE.name}. Tüm hakları saklıdır.
+            &copy; {year} {SITE.nameBrand}. Tüm hakları saklıdır.
           </p>
         </div>
       </div>

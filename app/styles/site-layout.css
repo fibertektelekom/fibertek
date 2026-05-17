@@ -810,6 +810,11 @@ footer.site-footer {
   margin-bottom: 0.75rem;
 }
 
+.footer-brand .logo-main--brand {
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 20px rgba(59, 142, 240, 0.35);
+}
+
 .footer-brand p {
   font-size: 0.9rem;
   line-height: 1.6;
