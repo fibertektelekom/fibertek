@@ -58,14 +58,22 @@ export default function IletisimPage() {
             <ContactForm />
           </div>
 
-          <div className="map-placeholder" role="img" aria-label="Harita alanı">
-            <p>
-              <strong>Google Harita</strong>
-              <br />
-              PERPA Ticaret Merkezi, Şişli / İstanbul
-              <br />
-              <em>Harita entegrasyonu buraya eklenecektir.</em>
-            </p>
+          <div className="map-embed">
+            <iframe
+              title="Fibertek Telekom konum haritası — PERPA, Şişli"
+              src={SITE.mapsEmbedUrl}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <a
+              href={SITE.mapsUrl}
+              className="map-embed-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Haritalar&apos;da aç →
+            </a>
           </div>
         </div>
       </section>

@@ -81,6 +81,24 @@ export const ALL_SERVICES: Service[] = [
     description:
       "Superonline kapsamındaki saha işleri, fiber altyapı kurulum ve operasyonel destek süreçleri. Deneyimli ekip ve kurumsal iş disipliniyle yürütülen projeler.",
   },
+  {
+    id: "data-kabin",
+    title: "Data Kabinleri",
+    description:
+      "Rack ve data kabini kurulumu, kablolama düzeni, etiketleme ve altyapı düzenleme. Kurumsal veri merkezi ve teknik oda uygulamaları.",
+  },
+  {
+    id: "cat-sonlandirma",
+    title: "Cat Kablo Sonlandırmaları",
+    description:
+      "CAT5e, CAT6 ve CAT7 bakır kablo sonlandırma, patch panel bağlantıları ve ölçüm/test süreçlerinde standartlara uygun saha uygulaması.",
+  },
+  {
+    id: "kamera-ap-montaj",
+    title: "Kamera ve Access Point Montaj Kurulum",
+    description:
+      "IP kamera, güvenlik sistemi ve kablosuz access point montajı, kurulumu ve saha devreye alma. Bina içi/dışı erişim noktası çözümleri.",
+  },
 ];
 
 export const SERVICE_FORM_OPTIONS = [

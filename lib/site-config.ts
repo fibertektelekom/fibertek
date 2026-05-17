@@ -9,6 +9,9 @@ export const SITE = {
   address: "PERPA Ticaret Merkezi, Şişli / İstanbul",
   addressShort: "PERPA / İstanbul",
   workingHours: "Pazartesi – Cuma: 09:00 – 18:00",
+  mapsUrl: "https://maps.app.goo.gl/HnNLQ4w8d5pMcF3G6",
+  mapsEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3012.285!2d28.9683834!3d41.0613059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab787f0c406b5%3A0xecfcb4a3f3dc8e80!2sF%C4%B0BERTEK%20TELEKOM!5e0!3m2!1str!2str!4v1747498560000!5m2!1str!2str",
 } as const;
 
 export const NAV_ITEMS = [

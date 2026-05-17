@@ -60,6 +60,32 @@ export function ServiceIcon({ name }: ServiceIconProps) {
           <circle cx="12" cy="16" r="1.5" fill="currentColor" />
         </svg>
       );
+    case "cabinet":
+      return (
+        <svg {...props}>
+          <rect x="5" y="3" width="14" height="18" rx="1.5" />
+          <path d="M8 7h8M8 11h8M8 15h8M8 19h5" />
+          <circle cx="17" cy="19" r="1" fill="currentColor" />
+        </svg>
+      );
+    case "cat":
+      return (
+        <svg {...props}>
+          <path d="M4 7h16M4 12h16M4 17h10" />
+          <path d="M18 15v4M16 17h4" />
+          <circle cx="7" cy="7" r="1.25" fill="currentColor" />
+          <circle cx="7" cy="12" r="1.25" fill="currentColor" />
+          <circle cx="7" cy="17" r="1.25" fill="currentColor" />
+        </svg>
+      );
+    case "cctv":
+      return (
+        <svg {...props}>
+          <path d="M4 8h4l2-2h4l2 2h4v10H4V8z" />
+          <circle cx="12" cy="13" r="3" />
+          <path d="M19 10v2M21 9v4" />
+        </svg>
+      );
     default:
       return null;
   }

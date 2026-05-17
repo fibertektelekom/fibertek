@@ -17,6 +17,16 @@ export const HOME_REFERENCES: Reference[] = [
     subtitle: "Saha ve altyapı operasyonları",
   },
   {
+    id: "istanbul-finans-merkezi",
+    title: "İstanbul Finans Merkezi",
+    subtitle: "Kurumsal altyapı ve saha uygulamaları",
+  },
+  {
+    id: "techom",
+    title: "Techom",
+    subtitle: "Telekom ve teknik altyapı projeleri",
+  },
+  {
     id: "kurumsal-fiber",
     title: "Kurumsal Fiber Altyapı Projeleri",
     subtitle: "Planlama, kurulum ve devreye alma",
@@ -40,6 +50,18 @@ export const ALL_REFERENCES: Reference[] = [
     title: "Superonline",
     description:
       "Fibertek Telekom, Superonline işlerini yürüten bir telekom altyapı firması olarak saha işleri, fiber altyapı kurulum ve operasyonel destek süreçlerinde aktif rol almaktadır.",
+  },
+  {
+    id: "istanbul-finans-merkezi",
+    title: "İstanbul Finans Merkezi",
+    description:
+      "İstanbul Finans Merkezi kapsamında kurumsal fiber ve pasif altyapı projelerinde planlama, saha kurulumu ve teknik uygulama hizmetleri sunulmaktadır.",
+  },
+  {
+    id: "techom",
+    title: "Techom",
+    description:
+      "Techom ile yürütülen telekom ve teknik altyapı projelerinde saha operasyonları, kablolama ve devreye alma süreçlerinde iş ortaklığı sağlanmaktadır.",
   },
   {
     id: "kurumsal-fiber",

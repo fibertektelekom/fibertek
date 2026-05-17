@@ -4,7 +4,10 @@ export type HomeServiceIcon =
   | "field"
   | "maintenance"
   | "corporate"
-  | "splice";
+  | "splice"
+  | "cabinet"
+  | "cat"
+  | "cctv";
 
 export type HomeService = {
   id: string;
@@ -55,5 +58,26 @@ export const HOME_SERVICES: HomeService[] = [
     title: "Ek ve Sonlandırma",
     description:
       "Fiber ek, sonlandırma ve test süreçlerinde profesyonel uygulama hizmetleri.",
+  },
+  {
+    id: "data-kabin",
+    icon: "cabinet",
+    title: "Data Kabinleri",
+    description:
+      "Rack ve data kabini kurulumu, kablolama düzeni ve altyapı düzenleme hizmetleri.",
+  },
+  {
+    id: "cat-sonlandirma",
+    icon: "cat",
+    title: "Cat Kablo Sonlandırmaları",
+    description:
+      "CAT5e, CAT6 ve CAT7 kablo sonlandırma, patch panel ve test uygulamaları.",
+  },
+  {
+    id: "kamera-ap-montaj",
+    icon: "cctv",
+    title: "Kamera ve Access Point Montaj Kurulum",
+    description:
+      "Güvenlik kamerası ve kablosuz access point montaj, kurulum ve saha devreye alma.",
   },
 ];

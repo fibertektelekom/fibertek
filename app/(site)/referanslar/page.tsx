@@ -6,7 +6,7 @@ import { ALL_REFERENCES } from "@/lib/data/references";
 export const metadata: Metadata = {
   title: "Referanslar",
   description:
-    "Akçadağ Telekom, Superonline ve kurumsal fiber altyapı proje referansları.",
+    "Akçadağ Telekom, Superonline, İstanbul Finans Merkezi, Techom ve kurumsal fiber altyapı proje referansları.",
 };
 
 export default function ReferanslarPage() {
