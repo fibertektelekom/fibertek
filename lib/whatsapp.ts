@@ -1,26 +1,26 @@
 import { SITE } from "./site-config";
 
-export type QuoteFormData = {
+export type ServiceRequestFormData = {
   adSoyad: string;
-  firma: string;
   telefon: string;
-  email: string;
-  hizmet: string;
-  mesaj: string;
+  hizmetTuru: string;
+  bolge: string;
+  talepDetayi: string;
 };
 
-export function buildWhatsAppQuoteUrl(data: QuoteFormData): string {
+export function buildWhatsAppServiceRequestUrl(
+  data: ServiceRequestFormData
+): string {
   const lines = [
-    "Merhaba, Fibertek Telekom web sitesinden teklif talebi gönderiyorum.",
+    "Yeni Hizmet Talebi",
     "",
     `Ad Soyad: ${data.adSoyad}`,
-    `Firma: ${data.firma || "Belirtilmedi"}`,
     `Telefon: ${data.telefon}`,
-    `E-posta: ${data.email || "Belirtilmedi"}`,
-    `Hizmet: ${data.hizmet || "Belirtilmedi"}`,
+    `Hizmet Türü: ${data.hizmetTuru}`,
+    `Bölge / İlçe: ${data.bolge}`,
     "",
-    "Talep detayı:",
-    data.mesaj,
+    "Talep Detayı:",
+    data.talepDetayi,
   ];
 
   return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;

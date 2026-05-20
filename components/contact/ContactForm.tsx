@@ -1,32 +1,49 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { SERVICE_FORM_OPTIONS } from "@/lib/data/services";
-import { buildWhatsAppQuoteUrl } from "@/lib/whatsapp";
+import {
+  DISTRICT_OPTIONS,
+  getDistrictLabel,
+  getServiceTypeLabel,
+  SERVICE_TYPE_OPTIONS,
+} from "@/lib/data/service-request-form";
+import { buildWhatsAppServiceRequestUrl } from "@/lib/whatsapp";
 
-export function ContactForm() {
+type ContactFormProps = {
+  /** İlçe sayfasından gelindiğinde bölge ön seçimi (ör. "sultangazi") */
+  defaultDistrict?: string;
+};
+
+export function ContactForm({ defaultDistrict }: ContactFormProps) {
   const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setFormError(null);
+
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    const hizmetSelect = form.elements.namedItem("hizmet") as HTMLSelectElement;
-    const hizmetLabel =
-      hizmetSelect.selectedIndex > 0
-        ? hizmetSelect.options[hizmetSelect.selectedIndex].text
-        : "Belirtilmedi";
+    const adSoyad = String(data.get("ad_soyad") ?? "").trim();
+    const telefon = String(data.get("telefon") ?? "").trim();
+    const hizmetValue = String(data.get("hizmet") ?? "").trim();
+    const bolgeValue = String(data.get("bolge") ?? "").trim();
+    const talepDetayi = String(data.get("talep_detayi") ?? "").trim();
+
+    if (!adSoyad || !telefon || !hizmetValue || !bolgeValue || !talepDetayi) {
+      setFormError("Lütfen zorunlu alanları doldurun.");
+      return;
+    }
 
     setSubmitting(true);
 
-    const url = buildWhatsAppQuoteUrl({
-      adSoyad: String(data.get("ad_soyad") ?? "").trim(),
-      firma: String(data.get("firma") ?? "").trim(),
-      telefon: String(data.get("telefon") ?? "").trim(),
-      email: String(data.get("email") ?? "").trim(),
-      hizmet: hizmetLabel,
-      mesaj: String(data.get("mesaj") ?? "").trim(),
+    const url = buildWhatsAppServiceRequestUrl({
+      adSoyad,
+      telefon,
+      hizmetTuru: getServiceTypeLabel(hizmetValue),
+      bolge: getDistrictLabel(bolgeValue),
+      talepDetayi,
     });
 
     window.open(url, "_blank", "noopener,noreferrer");
@@ -35,8 +52,18 @@ export function ContactForm() {
 
   return (
     <div className="contact-form-wrap">
-      <h2>Teklif Formu</h2>
-      <form onSubmit={handleSubmit}>
+      <h2>Hizmet &amp; Arıza Talep Formu</h2>
+      <p className="contact-form-lead">
+        İstanbul Avrupa Yakası fiber optik arıza, internet destek, saha
+        operasyonları ve güvenlik kamera hizmetleri için bize hızlıca ulaşın.
+      </p>
+      <form onSubmit={handleSubmit} noValidate>
+        {formError ? (
+          <p className="form-error" role="alert">
+            {formError}
+          </p>
+        ) : null}
+
         <div className="form-group">
           <label htmlFor="ad-soyad">Ad Soyad *</label>
           <input
@@ -47,54 +74,62 @@ export function ContactForm() {
             autoComplete="name"
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="firma">Firma</label>
-          <input
-            type="text"
-            id="firma"
-            name="firma"
-            autoComplete="organization"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="telefon">Telefon *</label>
+          <label htmlFor="telefon">Telefon Numarası *</label>
           <input
             type="tel"
             id="telefon"
             name="telefon"
             required
+            placeholder="05xx xxx xx xx"
             autoComplete="tel"
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="email">E-posta</label>
-          <input type="email" id="email" name="email" autoComplete="email" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="hizmet">Hizmet Türü</label>
-          <select id="hizmet" name="hizmet" defaultValue="">
-            {SERVICE_FORM_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>
+          <label htmlFor="hizmet">Hizmet Türü *</label>
+          <select id="hizmet" name="hizmet" defaultValue="" required>
+            {SERVICE_TYPE_OPTIONS.map((opt) => (
+              <option key={opt.value || "empty"} value={opt.value}>
                 {opt.label}
               </option>
             ))}
           </select>
         </div>
+
         <div className="form-group">
-          <label htmlFor="mesaj">Proje / Talep Detayı *</label>
-          <textarea
-            id="mesaj"
-            name="mesaj"
+          <label htmlFor="bolge">Bölge / İlçe *</label>
+          <select
+            id="bolge"
+            name="bolge"
+            defaultValue={defaultDistrict ?? ""}
             required
-            placeholder="Projeniz veya talebiniz hakkında kısa bilgi veriniz."
+          >
+            {DISTRICT_OPTIONS.map((opt) => (
+              <option key={opt.value || "empty"} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="talep-detayi">Talep Detayı *</label>
+          <textarea
+            id="talep-detayi"
+            name="talep_detayi"
+            required
+            placeholder="Yaşadığınız arıza veya talebinizi kısa şekilde yazınız. Örn: Fiber kablo koptu, internet bağlantısı yok, kamera kurulumu yapılacak."
           />
         </div>
+
         <button
           type="submit"
           className="btn btn-navy btn-full"
           disabled={submitting}
         >
-          {submitting ? "Yönlendiriliyor..." : "WhatsApp ile Teklif Gönder"}
+          {submitting ? "Yönlendiriliyor..." : "WhatsApp Üzerinden Gönder"}
         </button>
         <p className="form-hint">
           Form gönderildiğinde talebiniz WhatsApp üzerinden iletilir.

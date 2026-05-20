@@ -112,6 +112,48 @@
   color: var(--blue-light, #3b8ef0);
 }
 
+.service-regions-block {
+  margin: 2.5rem 0 2rem;
+  padding: 1.75rem 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+}
+
+.service-regions-block h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy, #0a1628);
+}
+
+.service-regions-block > p {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--gray-600, #64748b);
+}
+
+.service-regions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem 1rem;
+}
+
+.service-regions-list a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blue, #1e6fd9);
+  text-decoration: none;
+}
+
+.service-regions-list a:hover {
+  color: var(--blue-light, #3b8ef0);
+  text-decoration: underline;
+}
+
 .services-section .gallery-slider {
   margin-top: 0;
 }
@@ -121,9 +163,17 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
+
+  .service-regions-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 640px) {
+  .service-regions-list {
+    grid-template-columns: 1fr;
+  }
+
   .services-section-header {
     margin-bottom: 2rem;
     text-align: left;

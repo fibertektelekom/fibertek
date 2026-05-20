@@ -100,12 +100,3 @@ export const ALL_SERVICES: Service[] = [
       "IP kamera, güvenlik sistemi ve kablosuz access point montajı, kurulumu ve saha devreye alma. Bina içi/dışı erişim noktası çözümleri.",
   },
 ];
-
-export const SERVICE_FORM_OPTIONS = [
-  { value: "", label: "Seçiniz" },
-  { value: "fiber", label: "Fiber Optik Altyapı" },
-  { value: "fttx", label: "FTTX Çözümleri" },
-  { value: "saha", label: "Saha Operasyonları" },
-  { value: "superonline", label: "Superonline Saha İşleri" },
-  { value: "diger", label: "Diğer" },
-] as const;

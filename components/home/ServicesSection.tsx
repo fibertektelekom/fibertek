@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { GallerySlider } from "@/components/home/GallerySlider";
 import { ServiceIcon } from "@/components/home/ServiceIcon";
+import { ServiceRegionsLinks } from "@/components/layout/ServiceRegionsLinks";
 import { HOME_SERVICES } from "@/lib/data/home-services";
 
 export function ServicesSection() {
@@ -25,6 +26,12 @@ export function ServicesSection() {
               <p>{service.description}</p>
             </article>
           ))}
+        </div>
+
+        <div className="service-regions-block">
+          <h3>Hizmet Bölgeleri</h3>
+          <p>İstanbul Avrupa Yakası ilçe bazlı fiber optik arıza ve teknik servis.</p>
+          <ServiceRegionsLinks />
         </div>
 
         <GallerySlider />

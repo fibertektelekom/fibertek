@@ -4,9 +4,9 @@ import { PageHero } from "@/components/layout/PageHero";
 import { SITE, TEL_URL, WHATSAPP_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "İletişim",
+  title: "Hizmet ve Arıza Talep Formu",
   description:
-    "PERPA İstanbul, telefon, WhatsApp ve teklif formu ile Fibertek Telekom iletişim.",
+    "İstanbul Avrupa Yakası fiber optik arıza, internet arızası, Superonline saha destek, yeni hat çekimi ve güvenlik kamera kurulumu için hızlı talep formu.",
 };
 
 export default function IletisimPage() {

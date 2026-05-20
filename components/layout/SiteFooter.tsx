@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ServiceRegionsLinks } from "@/components/layout/ServiceRegionsLinks";
 import { NAV_ITEMS, SITE, TEL_URL, WHATSAPP_URL } from "@/lib/site-config";
 
 export function SiteFooter() {
@@ -23,6 +24,10 @@ export function SiteFooter() {
                 {item.label}
               </Link>
             ))}
+          </div>
+          <div className="footer-col">
+            <h4>Hizmet Bölgeleri</h4>
+            <ServiceRegionsLinks className="footer-region-links" />
           </div>
           <div className="footer-col">
             <h4>İletişim</h4>
